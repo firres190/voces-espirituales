@@ -203,7 +203,7 @@ img{max-width:100%;display:block}.wrap{width:min(1120px,92vw);margin:auto}.topba
   box-shadow:0 28px 70px rgba(8,35,73,.26)!important;
   transform:translateX(-50%) scale(.96)!important;
   opacity:0;
-  animation:phoneCarousel 12s infinite;
+  animation:phoneCarouselSlide 12s cubic-bezier(.45,0,.25,1) infinite;
   z-index:1;
   overflow:hidden;
   background:#0b0f18;
@@ -213,12 +213,13 @@ img{max-width:100%;display:block}.wrap{width:min(1120px,92vw);margin:auto}.topba
 .phone-stack .phone.one{animation-delay:0s;}
 .phone-stack .phone.two{animation-delay:4s;}
 .phone-stack .phone.three{animation-delay:8s;}
-@keyframes phoneCarousel{
-  0%{opacity:0;transform:translateX(-50%) translateY(20px) scale(.92)!important;}
-  8%{opacity:1;transform:translateX(-50%) translateY(0) scale(1)!important;}
-  28%{opacity:1;transform:translateX(-50%) translateY(0) scale(1)!important;}
-  36%{opacity:0;transform:translateX(-50%) translateY(-20px) scale(.94)!important;}
-  100%{opacity:0;transform:translateX(-50%) translateY(-20px) scale(.94)!important;}
+@keyframes phoneCarouselSlide{
+  0%{opacity:0;transform:translateX(90%) scale(.98)!important;}
+  3%{opacity:1;}
+  10%{opacity:1;transform:translateX(-50%) scale(1)!important;}
+  31%{opacity:1;transform:translateX(-50%) scale(1)!important;}
+  40%{opacity:1;transform:translateX(-190%) scale(.98)!important;}
+  41%,100%{opacity:0;transform:translateX(-190%) scale(.98)!important;}
 }
 .carousel-note{
   display:flex;
@@ -324,7 +325,7 @@ img{max-width:100%;display:block}.wrap{width:min(1120px,92vw);margin:auto}.topba
         <div class="phone two"><img src="san_rafael_assets/app_inicio.jpeg" alt="Inicio de la jornada espiritual"></div>
         <div class="phone three"><img src="san_rafael_assets/app_diario.jpeg" alt="Diario espiritual dentro de la aplicación"></div>
       </div>
-      <div class="carousel-note"><span class="carousel-dot"></span> Capturas reales: se muestran una por una</div>
+      <div class="carousel-note"><span class="carousel-dot"></span> Capturas reales: se deslizan automáticamente</div>
     </div>
     <div>
       <span class="kicker">Así se ve por dentro</span>
