@@ -140,6 +140,120 @@ img{max-width:100%;display:block}.wrap{width:min(1120px,92vw);margin:auto}.topba
   .screen-phone{max-height:320px;}
 }
 
+
+
+/* V5: carrusel automático de capturas + brillo en botones */
+.btn-primary{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+.btn-primary::after{
+  content:"";
+  position:absolute;
+  top:-45%;
+  bottom:-45%;
+  width:42px;
+  left:-70px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),rgba(255,255,255,.82),rgba(255,255,255,.18),transparent);
+  transform:skewX(-22deg);
+  animation:ctaShine 2.8s ease-in-out infinite;
+  z-index:1;
+  pointer-events:none;
+}
+.btn-primary > *{position:relative;z-index:2;}
+@keyframes ctaShine{
+  0%{left:-80px;opacity:0;}
+  12%{opacity:1;}
+  44%{left:calc(100% + 60px);opacity:1;}
+  100%{left:calc(100% + 60px);opacity:0;}
+}
+
+.phone-stack{
+  position:relative;
+  width:min(360px,92vw);
+  height:700px;
+  min-height:700px;
+  margin:0 auto;
+  overflow:hidden;
+  display:block;
+  transform:none!important;
+}
+.phone-stack::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:10px;
+  width:70%;
+  height:32px;
+  transform:translateX(-50%);
+  background:radial-gradient(ellipse,rgba(8,35,73,.20),transparent 65%);
+  z-index:0;
+}
+.phone-stack .phone{
+  position:absolute!important;
+  left:50%!important;
+  right:auto!important;
+  top:18px!important;
+  width:min(315px,78vw)!important;
+  max-width:none!important;
+  min-width:0!important;
+  border:10px solid #101826!important;
+  border-radius:38px!important;
+  box-shadow:0 28px 70px rgba(8,35,73,.26)!important;
+  transform:translateX(-50%) scale(.96)!important;
+  opacity:0;
+  animation:phoneCarousel 12s infinite;
+  z-index:1;
+  overflow:hidden;
+  background:#0b0f18;
+}
+.phone-stack .phone:before{display:block!important;}
+.phone-stack .phone img{border-radius:26px!important;width:100%;height:auto;}
+.phone-stack .phone.one{animation-delay:0s;}
+.phone-stack .phone.two{animation-delay:4s;}
+.phone-stack .phone.three{animation-delay:8s;}
+@keyframes phoneCarousel{
+  0%{opacity:0;transform:translateX(-50%) translateY(20px) scale(.92)!important;}
+  8%{opacity:1;transform:translateX(-50%) translateY(0) scale(1)!important;}
+  28%{opacity:1;transform:translateX(-50%) translateY(0) scale(1)!important;}
+  36%{opacity:0;transform:translateX(-50%) translateY(-20px) scale(.94)!important;}
+  100%{opacity:0;transform:translateX(-50%) translateY(-20px) scale(.94)!important;}
+}
+.carousel-note{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  color:var(--muted);
+  font-size:14px;
+  font-weight:700;
+  margin-top:10px;
+}
+.carousel-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(214,168,51,.16);}
+
+@media(max-width:980px){
+  .phone-stack{width:min(340px,90vw);height:650px;min-height:650px;margin-bottom:8px;}
+  .phone-stack .phone{width:min(300px,76vw)!important;}
+}
+@media(max-width:640px){
+  .phone-stack{width:100%;height:610px;min-height:610px;margin:0 auto 18px;padding:0;}
+  .phone-stack .phone{width:min(292px,78vw)!important;border-width:9px!important;border-radius:36px!important;top:8px!important;}
+  .phone-stack .phone img{border-radius:24px!important;}
+  .phone-stack .phone:before{display:block!important;width:72px;height:18px;}
+  .product-showcase{gap:18px;}
+  .section h2{font-size:36px;}
+}
+@media(max-width:390px){
+  .phone-stack{height:565px;min-height:565px;}
+  .phone-stack .phone{width:min(258px,78vw)!important;border-width:8px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  .btn-primary::after,.phone-stack .phone{animation:none;}
+  .phone-stack .phone{opacity:0;}
+  .phone-stack .phone.one{opacity:1;transform:translateX(-50%) scale(1)!important;}
+}
+
 </style>
 </head>
 <body>
@@ -204,10 +318,13 @@ img{max-width:100%;display:block}.wrap{width:min(1120px,92vw);margin:auto}.topba
 
 <section class="section blue" id="por-dentro">
   <div class="wrap product-showcase">
-    <div class="phone-stack" aria-label="Capturas de la aplicación en mockups de celular">
-      <div class="phone one"><img src="san_rafael_assets/app_reproductor.jpeg" alt="Reproductor de oración guiada"></div>
-      <div class="phone two"><img src="san_rafael_assets/app_inicio.jpeg" alt="Inicio de la jornada espiritual"></div>
-      <div class="phone three"><img src="san_rafael_assets/app_diario.jpeg" alt="Diario espiritual dentro de la aplicación"></div>
+    <div>
+      <div class="phone-stack" aria-label="Carrusel automático de capturas de la aplicación en celular">
+        <div class="phone one"><img src="san_rafael_assets/app_reproductor.jpeg" alt="Reproductor de oración guiada"></div>
+        <div class="phone two"><img src="san_rafael_assets/app_inicio.jpeg" alt="Inicio de la jornada espiritual"></div>
+        <div class="phone three"><img src="san_rafael_assets/app_diario.jpeg" alt="Diario espiritual dentro de la aplicación"></div>
+      </div>
+      <div class="carousel-note"><span class="carousel-dot"></span> Capturas reales: se muestran una por una</div>
     </div>
     <div>
       <span class="kicker">Así se ve por dentro</span>
