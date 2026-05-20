@@ -280,9 +280,19 @@ img{max-width:100%;display:block}.wrap{width:min(1120px,92vw);margin:auto}.topba
   line-height: 1;
   box-shadow: 0 12px 28px rgba(24,119,242,.28);
   border: 1px solid rgba(255,255,255,.18);
-  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  transition: opacity .35s ease, transform .35s ease, box-shadow .2s ease, filter .2s ease, visibility .35s ease;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(14px) scale(.96);
 }
-.facebook-float:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(24,119,242,.38); filter: brightness(1.03); }
+.facebook-float.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+.facebook-float.is-visible:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 16px 34px rgba(24,119,242,.38); filter: brightness(1.03); }
 .facebook-float:focus-visible { outline: 3px solid rgba(24,119,242,.28); outline-offset: 4px; }
 .fb-icon {
   width: 24px;
@@ -546,5 +556,30 @@ img{max-width:100%;display:block}.wrap{width:min(1120px,92vw);margin:auto}.topba
     <p>© 2026 Voces Espirituales · Jornada espiritual de oración y reflexión. No reemplaza atención médica, psicológica ni profesional.</p>
   </div>
 </footer>
+
+<script>
+(function () {
+  const dudasBtn = document.querySelector('.facebook-float');
+  if (!dudasBtn) return;
+
+  function toggleDudasButton() {
+    const doc = document.documentElement;
+    const scrollable = Math.max(1, doc.scrollHeight - window.innerHeight);
+    const progress = window.scrollY / scrollable;
+
+    // Aparece cuando el usuario ya avanzó más de la mitad de la landing.
+    if (progress >= 0.55) {
+      dudasBtn.classList.add('is-visible');
+    } else {
+      dudasBtn.classList.remove('is-visible');
+    }
+  }
+
+  window.addEventListener('scroll', toggleDudasButton, { passive: true });
+  window.addEventListener('resize', toggleDudasButton);
+  toggleDudasButton();
+})();
+</script>
+
 </body>
 </html>
