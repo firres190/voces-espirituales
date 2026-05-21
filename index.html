@@ -351,13 +351,38 @@ img{max-width:100%;display:block}.wrap{width:min(1120px,92vw);margin:auto}.topba
   .fb-icon { width: 22px; height: 22px; font-size: 18px; }
 }
 
+/* V13: claridad de oferta y autoridad humana */
+.what-section{background:#fff;position:relative;overflow:hidden;}
+.what-section:before{content:"";position:absolute;inset:auto -160px -240px auto;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(31,93,150,.12),transparent 68%);pointer-events:none;}
+.what-card{position:relative;background:linear-gradient(135deg,#ffffff,#f4faff);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:32px;padding:36px;display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:start;}
+.what-card h2{font-family:"Cormorant Garamond",serif;font-size:clamp(38px,5vw,64px);line-height:1.02;color:var(--blue-950);font-weight:600;letter-spacing:-.8px;margin:0;}
+.what-card .plain-answer{font-size:20px;line-height:1.65;color:#31445a;margin-top:16px;}
+.what-card .plain-answer strong{color:var(--blue-900);}
+.what-points{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.what-point{background:white;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 12px 28px rgba(8,35,73,.055);}
+.what-point b{display:block;color:var(--blue-900);font-size:18px;margin-bottom:6px;}
+.what-point p{color:var(--muted);font-size:15.5px;line-height:1.5;}
+.not-course{margin-top:22px;background:#fff8e6;border:1px solid rgba(214,168,51,.34);color:#5d4919;border-radius:18px;padding:16px 18px;font-size:16px;line-height:1.55;}
+.about-section{background:linear-gradient(180deg,#fff,#f3f9ff);}
+.about-card{display:grid;grid-template-columns:360px 1fr;gap:34px;align-items:center;background:white;border:1px solid var(--line);border-radius:34px;box-shadow:var(--shadow);padding:28px;overflow:hidden;}
+.fray-photo{border-radius:26px;overflow:hidden;background:#1d120c;box-shadow:0 18px 45px rgba(8,35,73,.16);border:1px solid rgba(18,59,104,.12);}
+.fray-photo img{width:100%;height:460px;object-fit:cover;object-position:center top;}
+.about-copy h2{font-family:"Cormorant Garamond",serif;font-size:clamp(36px,5vw,62px);line-height:1.04;color:var(--blue-950);font-weight:600;letter-spacing:-.8px;margin:0 0 16px;}
+.about-copy p{color:var(--muted);font-size:18px;line-height:1.7;margin-top:14px;}
+.about-copy strong{color:var(--blue-900);}
+.about-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px;}
+.about-mini div{background:var(--blue-050);border:1px solid var(--line);border-radius:18px;padding:14px;color:#31445a;font-size:15px;line-height:1.45;}
+.about-mini b{display:block;color:var(--blue-900);font-size:16px;margin-bottom:3px;}
+@media(max-width:900px){.what-card,.about-card{grid-template-columns:1fr}.what-points{grid-template-columns:1fr}.fray-photo img{height:380px}.about-mini{grid-template-columns:1fr}}
+@media(max-width:640px){.what-card,.about-card{padding:22px;border-radius:24px}.what-card .plain-answer{font-size:17px}.what-point{padding:16px}.fray-photo img{height:340px}.about-copy p{font-size:16px}}
+
 </style>
 </head>
 <body>
 <header class="topbar">
   <div class="wrap topbar-inner">
     <a class="brand" href="#top"><span>21 Días con San Rafael</span></a>
-    <p class="nav-proof">Una experiencia de <strong>Voces Espirituales</strong> · +100,000 suscriptores</p>
+    <p class="nav-proof">Jornada espiritual guiada desde tu celular</p>
     <a class="mini-cta" href="https://pay.hotmart.com/B105666252X">Acceder por $3.99 USD</a>
   </div>
 </header>
@@ -366,7 +391,7 @@ img{max-width:100%;display:block}.wrap{width:min(1120px,92vw);margin:auto}.topba
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow"><span class="dot"></span> De Voces Espirituales · +100,000 suscriptores</div>
+      <div class="eyebrow"><span class="dot"></span> Jornada de oración guiada · San Rafael Arcángel</div>
       <h1>21 días de oración con <span class="gold">San Rafael Arcángel</span></h1>
       <p class="lead">Accede a una jornada espiritual guiada para pedir <strong>paz, fortaleza y sanación interior</strong> desde tu celular, con un valor simbólico pensado para servir a nuestra comunidad.</p>
       <div class="symbolic-box">
@@ -375,7 +400,7 @@ img{max-width:100%;display:block}.wrap{width:min(1120px,92vw);margin:auto}.topba
       </div>
       <div class="cta-row">
         <a class="btn-primary" href="https://pay.hotmart.com/B105666252X">Comenzar por $3.99 USD →</a>
-        <a class="btn-secondary" href="#por-dentro">Ver qué hay por dentro</a>
+        <a class="btn-secondary" href="#de-que-trata">¿De qué trata?</a>
       </div>
       <div class="trust-row">
         <span class="trust-pill">Valor simbólico de $3.99 USD</span>
@@ -393,14 +418,6 @@ img{max-width:100%;display:block}.wrap{width:min(1120px,92vw);margin:auto}.topba
   </div>
 </section>
 
-<section class="authority">
-  <div class="wrap authority-grid">
-    <div class="authority-card"><strong>+100K</strong><span>suscriptores en YouTube</span></div>
-    <div class="authority-card"><strong>21 días</strong><span>de oración guiada</span></div>
-    <div class="authority-card"><strong>100%</strong><span>digital desde tu celular</span></div>
-    <div class="authority-card"><strong>$3.99</strong><span>valor simbólico para sostener la plataforma</span></div>
-  </div>
-</section>
 
 <section class="section white">
   <div class="wrap promise-box">
@@ -572,11 +589,30 @@ img{max-width:100%;display:block}.wrap{width:min(1120px,92vw);margin:auto}.topba
       <h2>Antes de comenzar</h2>
     </div>
     <div class="faq">
-      <details open><summary>¿Necesito instalar una aplicación?</summary><p>No. Puedes entrar desde el navegador de tu celular o computadora usando el enlace de acceso.</p></details>
+      <details open><summary>¿De qué trata esta Jornada?</summary><p>Es una plataforma web de oración guiada de 21 días con San Rafael Arcángel. Cada día puedes escuchar una oración en audio, meditar un versículo, escribir en tu diario espiritual y avanzar a tu propio ritmo desde el celular.</p></details>
+      <details><summary>¿Necesito instalar una aplicación?</summary><p>No. Puedes entrar desde el navegador de tu celular o computadora usando el enlace de acceso.</p></details>
       <details><summary>¿Cuándo recibo las instrucciones de acceso?</summary><p>Las recibirás después de completar el pago en Hotmart. Revisa también las carpetas de correo no deseado o promociones.</p></details>
       <details><summary>¿Puedo orar por otra persona?</summary><p>Sí. Puedes hacer la jornada por ti, por tu familia o por una persona que esté atravesando un momento difícil.</p></details>
       <details><summary>¿Es un pago mensual?</summary><p>No. Es un valor simbólico de $3.99 USD, pago único, con acceso de por vida a la jornada.</p></details>
       <details><summary>¿Qué pasa si un día no puedo orar?</summary><p>No hay problema. Los contenidos quedan disponibles para que avances a tu propio ritmo.</p></details>
+    </div>
+  </div>
+</section>
+
+
+<section class="section about-section" id="quienes-somos">
+  <div class="wrap about-card">
+    <div class="fray-photo"><img src="san_rafael_assets/fray_francisco.png" alt="Fray Francisco, creador de Voces Espirituales y Sanación Divina"></div>
+    <div class="about-copy">
+      <span class="kicker">Quiénes somos</span>
+      <h2>Una jornada creada para acompañar a la comunidad en oración</h2>
+      <p>Esta plataforma fue impulsada por <strong>Fray Francisco</strong>, creador de los canales de YouTube <strong>Voces Espirituales</strong> y <strong>Sanación Divina</strong>, con el propósito de ofrecer un espacio sencillo, accesible y espiritual para quienes desean orar con constancia.</p>
+      <p>El valor simbólico de <strong>$3.99 USD</strong> ayuda a mantener activa la plataforma, cubrir sus costos técnicos y seguir creando recursos de oración para la comunidad.</p>
+      <div class="about-mini">
+        <div><b>Guía espiritual</b>Contenido pensado para orar con calma y esperanza.</div>
+        <div><b>Acceso sencillo</b>Diseñado para entrar desde el celular sin instalar nada.</div>
+        <div><b>Servicio comunitario</b>Un aporte simbólico para sostener la obra digital.</div>
+      </div>
     </div>
   </div>
 </section>
