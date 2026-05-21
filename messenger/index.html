@@ -34,6 +34,125 @@
 
 @media(max-width:900px){.hero-grid,.what-card,.showcase,.price-section,.about{grid-template-columns:1fr}.hero-media{order:-1}.device-hero{margin:auto}.includes{grid-template-columns:repeat(2,1fr)}.price-big{text-align:left}.about img{height:260px}.exit-popup{grid-template-columns:1fr}.ebook-mock{padding:24px}.ebook-mock img{max-width:190px}.popup-copy{padding:26px}.popup-copy h3{font-size:34px}}
 @media(max-width:640px){body{font-size:13px;-webkit-text-size-adjust:100%}.topbar{display:none}.hero{padding:22px 0 24px}.wrap{width:min(100% - 28px,620px)}.hero-grid{gap:20px}.hero-media{order:0}.eyebrow{font-size:10px;padding:7px 10px;margin-bottom:12px}h1{font-size:37px;line-height:1;letter-spacing:-.6px;margin-bottom:14px}.lead{font-size:16px;line-height:1.45}.trust-pill{font-size:10px;padding:7px 9px}.btn-primary,.btn-secondary{width:100%;font-size:13px;padding:14px 17px}.device-hero{padding:8px;border-radius:22px;max-width:285px;margin:6px auto 0}.device-hero img{border-radius:14px}.price-badge{display:none}.section{padding:38px 0}.section h2{font-size:30px;line-height:1.05}.section-head p{font-size:15px}.what-card{padding:18px;border-radius:22px}.plain-answer{font-size:15px;line-height:1.55}.includes{grid-template-columns:1fr}.include-card{padding:15px}.showcase{gap:20px}.phone-carousel{padding:16px;border-radius:24px}.phone-frame{max-width:220px}.text-list .row{grid-template-columns:40px 1fr;padding:13px}.row .num{width:40px;height:40px}.price-section{padding:22px;border-radius:26px;gap:16px}.price-section h2{font-size:32px!important;color:#fffdf4!important}.price-section p{font-size:14px}.price-big{font-size:60px}.about{padding:17px;border-radius:24px}.about p{font-size:14px}.faq details{padding:15px}.sticky-mobile{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:90;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:10px 14px;gap:12px;align-items:center;box-shadow:0 -12px 30px rgba(8,35,73,.08)}.sticky-mobile .sm-text{flex:1}.sticky-mobile b{display:block;color:var(--blue-900);font-size:13px}.sticky-mobile span{display:block;color:var(--muted);font-size:11px}.sticky-mobile a{flex:0 0 auto;background:linear-gradient(135deg,var(--blue-900),var(--blue-700));color:#fff;border-radius:999px;padding:13px 18px;font-weight:900;font-size:13px}.final{padding-bottom:100px}.popup-overlay{padding:12px}.popup-copy{padding:22px}.popup-copy h3{font-size:28px}.popup-copy p{font-size:13px}.popup-bullets div{font-size:12px}.popup-cta{font-size:13px;padding:13px}.facebook-float{display:none}}
+
+
+/* POPUP RESPONSIVE v3 — ebook mockup real y mejor lectura móvil */
+.popup-overlay{
+  padding: clamp(10px, 2.2vw, 24px) !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow-y:auto !important;
+  -webkit-overflow-scrolling:touch !important;
+}
+.exit-popup{
+  width:min(920px, 94vw) !important;
+  max-height:calc(100dvh - 28px) !important;
+  overflow:hidden !important;
+  grid-template-columns:0.92fr 1.08fr !important;
+  border-radius:26px !important;
+}
+.ebook-mock{
+  position:relative !important;
+  background:
+    radial-gradient(circle at 45% 20%, rgba(255,255,255,.92), rgba(234,244,255,.7) 48%, rgba(221,235,249,.92) 100%) !important;
+  padding:34px 26px !important;
+  min-height:100% !important;
+  perspective:1000px !important;
+}
+.book-3d{
+  position:relative !important;
+  width:min(270px, 78%) !important;
+  transform:rotateY(-13deg) rotateZ(-1deg) !important;
+  transform-style:preserve-3d !important;
+  filter:drop-shadow(0 26px 30px rgba(5,20,39,.26)) !important;
+}
+.book-3d:before{
+  content:"";
+  position:absolute;
+  top:2.5%;
+  bottom:2.5%;
+  right:-18px;
+  width:20px;
+  background:linear-gradient(90deg,#10243e,#061527 45%,#293f5c);
+  transform:skewY(4deg);
+  border-radius:0 8px 8px 0;
+  box-shadow:inset -4px 0 8px rgba(255,255,255,.12);
+  z-index:0;
+}
+.book-3d:after{
+  content:"";
+  position:absolute;
+  left:8%;
+  right:-22px;
+  bottom:-14px;
+  height:24px;
+  background:linear-gradient(180deg,rgba(255,255,255,.82),rgba(220,224,232,.7));
+  transform:skewX(-24deg);
+  border-radius:2px 8px 8px 2px;
+  z-index:-1;
+}
+.book-3d img{
+  width:100% !important;
+  max-width:none !important;
+  border-radius:9px !important;
+  position:relative !important;
+  z-index:1 !important;
+  box-shadow:0 20px 42px rgba(0,0,0,.20) !important;
+}
+.popup-copy{overflow:auto !important;max-height:calc(100dvh - 28px) !important;}
+.popup-cta{position:relative !important;overflow:hidden !important;}
+.popup-cta:before{
+  content:"";position:absolute;top:-40%;left:-35%;width:38%;height:180%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent);
+  transform:rotate(18deg);animation:shineButton 2.8s infinite;
+}
+@keyframes shineButton{0%{left:-42%}48%,100%{left:118%}}
+
+@media(max-width:760px){
+  .popup-overlay{padding:10px !important;align-items:center !important;}
+  .exit-popup{
+    width:min(94vw, 420px) !important;
+    max-height:88dvh !important;
+    display:flex !important;
+    flex-direction:column !important;
+    border-radius:22px !important;
+    overflow-y:auto !important;
+  }
+  .popup-close{
+    right:10px !important;top:10px !important;width:34px !important;height:34px !important;
+    font-size:22px !important;background:rgba(255,255,255,.95) !important;
+  }
+  .ebook-mock{
+    min-height:auto !important;
+    padding:16px 16px 12px !important;
+    border-bottom:1px solid rgba(214,168,51,.28) !important;
+  }
+  .book-3d{width:min(168px, 50vw) !important;margin:auto !important;transform:rotateY(-10deg) rotateZ(-1deg) !important;}
+  .book-3d:before{right:-12px;width:14px;border-radius:0 6px 6px 0;}
+  .book-3d:after{right:-14px;bottom:-9px;height:16px;}
+  .popup-copy{
+    padding:16px 17px 18px !important;
+    max-height:none !important;
+    overflow:visible !important;
+  }
+  .popup-kicker{font-size:10px !important;letter-spacing:1.2px !important;margin-bottom:6px !important;}
+  .popup-copy h3{font-size:25px !important;line-height:1.08 !important;margin-bottom:8px !important;}
+  .popup-copy p{font-size:12.4px !important;line-height:1.42 !important;margin-bottom:8px !important;}
+  .popup-bullets{gap:5px !important;margin:8px 0 !important;}
+  .popup-bullets div{font-size:11.6px !important;line-height:1.32 !important;}
+  .popup-cta{font-size:12.2px !important;padding:12px 12px !important;border-radius:12px !important;margin-top:9px !important;}
+  .popup-small{font-size:10.5px !important;margin-top:7px !important;}
+}
+
+@media(max-width:370px){
+  .exit-popup{max-height:90dvh !important;}
+  .book-3d{width:min(140px, 46vw) !important;}
+  .popup-copy h3{font-size:22px !important;}
+  .popup-copy p{font-size:11.8px !important;}
+  .popup-bullets div{font-size:11px !important;}
+  .popup-cta{font-size:11.6px !important;padding:11px 10px !important;}
+}
+
 </style>
 </head>
 <body>
@@ -71,7 +190,29 @@
 <section class="section final"><div class="wrap"><span class="kicker">Comienza con calma</span><h2>San Rafael Arcángel te acompañe en este camino</h2><p class="lead" style="margin:16px auto 0;max-width:680px">Revisa la Jornada con tranquilidad y empieza cuando tu corazón esté dispuesto.</p><a class="btn-primary" href="https://pay.hotmart.com/B105666252X">Comenzar mi Jornada por $3.99 USD</a></div></section>
 </main>
 
-<div class="popup-overlay" id="exit-popup"><div class="exit-popup"><button class="popup-close" onclick="closeExitPopup()">×</button><div class="ebook-mock"><img src="san_rafael_assets/ebook_rincon_oracion.png" alt="El Rincón de Oración de San Rafael"></div><div class="popup-copy"><div class="popup-kicker">Regalo especial</div><h3>Antes de irte… recibe este regalo con tu acceso 🙏</h3><p>Al comenzar hoy tu Jornada de Sanación de 21 días con San Rafael Arcángel, también recibirás de regalo la guía digital <strong>“El Rincón de Oración de San Rafael”</strong>.</p><div class="popup-bullets"><div>✅ Guía espiritual de preparación para orar</div><div>✅ Significado de la vela, el agua y la imagen de San Rafael</div><div>✅ PDF descargable + lectura tipo libro digital</div></div><p><strong>Todo incluido por $3.99 USD.</strong></p><a class="popup-cta" href="https://pay.hotmart.com/B105666252X">🕊️ Acceder ahora y recibir mi regalo</a><p class="popup-small">Promoción disponible solo desde esta página.</p></div></div></div>
+<div class="popup-overlay" id="exit-popup">
+  <div class="exit-popup" role="dialog" aria-modal="true" aria-label="Regalo especial de la Jornada">
+    <button class="popup-close" onclick="closeExitPopup()" aria-label="Cerrar">×</button>
+    <div class="ebook-mock">
+      <div class="book-3d">
+        <img src="san_rafael_assets/ebook_rincon_oracion.png" alt="Mockup del ebook El Rincón de Oración de San Rafael">
+      </div>
+    </div>
+    <div class="popup-copy">
+      <div class="popup-kicker">Regalo especial</div>
+      <h3>Antes de irte… recibe este regalo con tu acceso 🙏</h3>
+      <p>Al comenzar hoy tu Jornada de Sanación con San Rafael Arcángel, también recibirás la guía digital <strong>“El Rincón de Oración de San Rafael”</strong>.</p>
+      <div class="popup-bullets">
+        <div>✅ Guía espiritual para preparar tu momento de oración</div>
+        <div>✅ Significado de la vela, el agua y la imagen de San Rafael</div>
+        <div>✅ PDF descargable + lectura tipo libro digital</div>
+      </div>
+      <p><strong>Todo incluido por $3.99 USD.</strong></p>
+      <a class="popup-cta" href="https://pay.hotmart.com/B105666252X">🕊️ Acceder ahora y recibir mi regalo</a>
+      <p class="popup-small">Disponible solo desde esta página.</p>
+    </div>
+  </div>
+</div>
 <a class="facebook-float" href="https://m.me/167076276490110" target="_blank" rel="noopener noreferrer">¿Dudas?</a>
 <div class="sticky-mobile"><div class="sm-text"><b>Jornada de Sanación</b><span>21 días de oración guiada</span></div><a href="https://pay.hotmart.com/B105666252X">Acceder ahora</a></div>
 <script>
