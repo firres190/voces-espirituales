@@ -376,6 +376,185 @@ img{max-width:100%;display:block}.wrap{width:min(1120px,92vw);margin:auto}.topba
 @media(max-width:900px){.what-card,.about-card{grid-template-columns:1fr}.what-points{grid-template-columns:1fr}.fray-photo img{height:380px}.about-mini{grid-template-columns:1fr}}
 @media(max-width:640px){.what-card,.about-card{padding:22px;border-radius:24px}.what-card .plain-answer{font-size:17px}.what-point{padding:16px}.fray-photo img{height:340px}.about-copy p{font-size:16px}}
 
+
+
+/* Exit intent gift popup */
+.exit-popup-overlay{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:22px;
+  background:rgba(4,18,34,.68);
+  backdrop-filter:blur(8px);
+}
+.exit-popup-overlay.is-open{display:flex;animation:fadeIn .22s ease both;}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.exit-popup{
+  position:relative;
+  width:min(960px,96vw);
+  max-height:92vh;
+  overflow:auto;
+  background:linear-gradient(135deg,#fffaf0 0%,#ffffff 54%,#f4f8f2 100%);
+  border:1px solid rgba(214,168,51,.38);
+  border-radius:28px;
+  box-shadow:0 38px 110px rgba(0,0,0,.36);
+  display:grid;
+  grid-template-columns:.86fr 1.14fr;
+  gap:26px;
+  padding:32px;
+}
+.exit-popup:before{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid rgba(214,168,51,.32);
+  border-radius:22px;
+  pointer-events:none;
+}
+.exit-close{
+  position:absolute;
+  top:16px;
+  right:16px;
+  z-index:2;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  border:1px solid rgba(11,36,66,.18);
+  background:#fff;
+  color:var(--blue-950);
+  font-size:24px;
+  line-height:1;
+  cursor:pointer;
+  box-shadow:0 8px 22px rgba(8,35,73,.12);
+}
+.exit-popup-media{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:420px;
+  position:relative;
+}
+.exit-popup-media:after{
+  content:"";
+  position:absolute;
+  width:78%;
+  height:34px;
+  bottom:26px;
+  border-radius:50%;
+  background:rgba(8,35,73,.20);
+  filter:blur(16px);
+  z-index:0;
+}
+.ebook-mockup{
+  position:relative;
+  z-index:1;
+  width:min(300px,72vw);
+  transform:perspective(1100px) rotateY(-12deg) rotateX(2deg);
+  filter:drop-shadow(0 28px 32px rgba(8,35,73,.28));
+}
+.ebook-mockup img{
+  width:100%;
+  border-radius:7px 14px 14px 7px;
+  border:1px solid rgba(255,255,255,.45);
+  box-shadow:inset 12px 0 12px rgba(0,0,0,.25);
+}
+.ebook-mockup:before{
+  content:"";
+  position:absolute;
+  left:-20px;
+  top:3.5%;
+  width:24px;
+  height:93%;
+  background:linear-gradient(90deg,#041528,#0b2f28,#d6a833 160%);
+  border-radius:8px 0 0 8px;
+  transform:skewY(-2deg);
+  box-shadow:inset -5px 0 12px rgba(255,255,255,.15), -8px 10px 18px rgba(0,0,0,.16);
+}
+.ebook-mockup:after{
+  content:"";
+  position:absolute;
+  right:-12px;
+  top:4%;
+  width:13px;
+  height:92%;
+  background:repeating-linear-gradient(90deg,#f7f1df 0,#f7f1df 2px,#d9caa5 3px,#fff7df 5px);
+  border-radius:0 10px 10px 0;
+  opacity:.95;
+}
+.exit-popup-copy{
+  position:relative;
+  z-index:1;
+  align-self:center;
+  padding:12px 8px 12px 0;
+}
+.popup-kicker{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#94690b;
+  font-size:13px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:1.8px;
+  margin-bottom:10px;
+}
+.popup-kicker:before,.popup-kicker:after{content:"";height:1px;background:rgba(214,168,51,.55);flex:1;max-width:72px;}
+.exit-popup h3{
+  font-family:"Cormorant Garamond",serif;
+  color:var(--blue-950);
+  font-weight:700;
+  font-size:clamp(34px,4.6vw,54px);
+  line-height:1.03;
+  letter-spacing:-.7px;
+  margin-bottom:14px;
+}
+.exit-popup p{
+  color:#33475f;
+  font-size:17px;
+  line-height:1.6;
+  margin:0 0 14px;
+}
+.exit-popup p strong{color:var(--blue-900)}
+.exit-benefits{display:grid;gap:9px;margin:16px 0 18px;}
+.exit-benefit{display:flex;gap:10px;align-items:flex-start;color:#31445a;font-size:15.5px;line-height:1.35;}
+.exit-benefit span{width:22px;height:22px;border-radius:50%;background:#1d7b47;color:#fff;display:grid;place-items:center;font-size:13px;font-weight:900;flex:none;}
+.exit-price{text-align:center;margin:10px 0 14px;color:#94690b;font-weight:800;}
+.exit-price strong{display:block;font-family:"Cormorant Garamond",serif;color:var(--blue-950);font-size:44px;line-height:1;}
+.exit-popup .popup-cta{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#0b5f3d,#0b2442);
+  color:#fff;
+  padding:17px 18px;
+  font-weight:900;
+  font-size:16px;
+  box-shadow:0 16px 34px rgba(11,95,61,.28), inset 0 0 0 1px rgba(214,168,51,.55);
+  text-transform:uppercase;
+  letter-spacing:.2px;
+}
+.exit-popup .popup-cta:hover{transform:translateY(-1px);}
+.exit-footnote{display:flex;gap:8px;align-items:center;justify-content:center;color:#7b8795!important;font-size:13px!important;margin-top:12px!important;}
+@media(max-width:760px){
+  .exit-popup-overlay{padding:12px;align-items:flex-end;}
+  .exit-popup{grid-template-columns:1fr;gap:8px;padding:22px 18px 20px;border-radius:24px;max-height:90vh;}
+  .exit-popup:before{inset:8px;border-radius:19px;}
+  .exit-popup-media{min-height:0;padding-top:8px;}
+  .ebook-mockup{width:min(184px,48vw);}
+  .exit-popup h3{font-size:32px;text-align:center;margin-right:22px;}
+  .popup-kicker{justify-content:center;font-size:12px;}
+  .exit-popup p{font-size:15.5px;line-height:1.48;}
+  .exit-benefit{font-size:14.5px;}
+  .exit-price strong{font-size:38px;}
+  .exit-popup .popup-cta{font-size:14px;padding:15px 14px;}
+}
+
 </style>
 </head>
 <body>
@@ -644,6 +823,34 @@ img{max-width:100%;display:block}.wrap{width:min(1120px,92vw);margin:auto}.topba
 </main>
 
 
+
+
+<div class="exit-popup-overlay" id="exitGiftPopup" aria-hidden="true">
+  <div class="exit-popup" role="dialog" aria-modal="true" aria-labelledby="exitPopupTitle">
+    <button class="exit-close" type="button" id="exitPopupClose" aria-label="Cerrar">×</button>
+    <div class="exit-popup-media">
+      <div class="ebook-mockup">
+        <img src="san_rafael_assets/ebook_rincon_oracion.png" alt="Guía El Rincón de Oración de San Rafael">
+      </div>
+    </div>
+    <div class="exit-popup-copy">
+      <div class="popup-kicker">Regalo especial</div>
+      <h3 id="exitPopupTitle">Antes de irte… recibe este regalo con tu acceso 🙏</h3>
+      <p>Al comenzar hoy tu <strong>Jornada de Sanación de 21 días con San Rafael Arcángel</strong>, también recibirás de regalo la guía digital <strong>“El Rincón de Oración de San Rafael”</strong>.</p>
+      <p>Una guía espiritual para preparar tu espacio, tu corazón y tu intención antes de iniciar cada oración.</p>
+      <div class="exit-benefits">
+        <div class="exit-benefit"><span>✓</span><div>Guía espiritual de 20 páginas.</div></div>
+        <div class="exit-benefit"><span>✓</span><div>Preparación del rincón de oración.</div></div>
+        <div class="exit-benefit"><span>✓</span><div>Significado espiritual de la vela, el agua y la imagen de San Rafael.</div></div>
+        <div class="exit-benefit"><span>✓</span><div>PDF descargable + lectura tipo libro digital.</div></div>
+      </div>
+      <div class="exit-price">Todo incluido por un valor simbólico de <strong>$3.99 USD</strong></div>
+      <a class="popup-cta" href="https://pay.hotmart.com/B105666252X">🕊️ Acceder ahora y recibir mi regalo</a>
+      <p class="exit-footnote">🔒 Promoción disponible solo desde esta página.</p>
+    </div>
+  </div>
+</div>
+
 <a class="facebook-float" href="https://m.me/167076276490110" target="_blank" rel="noopener noreferrer" aria-label="Resolver dudas por Facebook">
   <span class="fb-icon" aria-hidden="true">f</span>
   <span class="fb-label">¿Dudas?</span>
@@ -683,6 +890,71 @@ img{max-width:100%;display:block}.wrap{width:min(1120px,92vw);margin:auto}.topba
   window.addEventListener('scroll', toggleDudasButton, { passive: true });
   window.addEventListener('resize', toggleDudasButton);
   toggleDudasButton();
+})();
+</script>
+
+
+
+<script>
+(function () {
+  const popup = document.getElementById('exitGiftPopup');
+  const closeBtn = document.getElementById('exitPopupClose');
+  if (!popup || !closeBtn) return;
+
+  const storageKey = 'sanRafaelExitGiftPopupSeen_v1';
+  let hasShown = localStorage.getItem(storageKey) === '1';
+  let mobileArmed = false;
+
+  function openPopup() {
+    if (hasShown) return;
+    hasShown = true;
+    localStorage.setItem(storageKey, '1');
+    popup.classList.add('is-open');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePopup() {
+    popup.classList.remove('is-open');
+    popup.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closePopup);
+  popup.addEventListener('click', function (event) {
+    if (event.target === popup) closePopup();
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && popup.classList.contains('is-open')) closePopup();
+  });
+
+  // Desktop: intento de salida cuando el cursor va hacia la parte superior.
+  document.addEventListener('mouseout', function (event) {
+    if (window.innerWidth <= 768) return;
+    if (!event.relatedTarget && event.clientY <= 12) openPopup();
+  });
+
+  // Mobile: aparece cuando ya avanzó bastante y luego intenta regresar hacia arriba.
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', function () {
+    const doc = document.documentElement;
+    const scrollable = Math.max(1, doc.scrollHeight - window.innerHeight);
+    const progress = window.scrollY / scrollable;
+    if (progress > 0.58) mobileArmed = true;
+    const scrollingUp = window.scrollY < lastY - 24;
+    if (window.innerWidth <= 768 && mobileArmed && scrollingUp && progress > 0.22) openPopup();
+    lastY = window.scrollY;
+  }, { passive: true });
+
+  // Backup: en celular, si ya leyó parte de la página y se queda varios segundos.
+  setTimeout(function () {
+    if (window.innerWidth <= 768 && !hasShown) {
+      const doc = document.documentElement;
+      const scrollable = Math.max(1, doc.scrollHeight - window.innerHeight);
+      const progress = window.scrollY / scrollable;
+      if (progress > 0.45) openPopup();
+    }
+  }, 32000);
 })();
 </script>
 
