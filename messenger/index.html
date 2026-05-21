@@ -209,7 +209,7 @@
       </div>
       <p><strong>Todo incluido por $3.99 USD.</strong></p>
       <a class="popup-cta" href="https://pay.hotmart.com/B105666252X">🕊️ Acceder ahora y recibir mi regalo</a>
-      <p class="popup-small">Disponible solo desde esta página.</p>
+      <p class="popup-small">Este regalo especial solo está incluido al acceder desde esta página.</p>
     </div>
   </div>
 </div>
@@ -217,7 +217,57 @@
 <div class="sticky-mobile"><div class="sm-text"><b>Jornada de Sanación</b><span>21 días de oración guiada</span></div><a href="https://pay.hotmart.com/B105666252X">Acceder ahora</a></div>
 <script>
 const imgs=['san_rafael_assets/app_inicio.jpeg','san_rafael_assets/app_reproductor.jpeg','san_rafael_assets/app_diario.jpeg'];let i=0;setInterval(()=>{i=(i+1)%imgs.length;document.getElementById('carousel-img').src=imgs[i]},3200);
-const popup=document.getElementById('exit-popup');let popupShown=localStorage.getItem('sr_exit_popup_short')==='1';function showExitPopup(){if(popupShown)return;popupShown=true;localStorage.setItem('sr_exit_popup_short','1');popup.classList.add('is-visible')}function closeExitPopup(){popup.classList.remove('is-visible')}document.addEventListener('mouseleave',e=>{if(e.clientY<=0)showExitPopup()});let maxScroll=0;window.addEventListener('scroll',()=>{const y=window.scrollY||document.documentElement.scrollTop;const h=document.documentElement.scrollHeight-window.innerHeight;maxScroll=Math.max(maxScroll,h?y/h:0);document.querySelector('.facebook-float').classList.toggle('is-visible',maxScroll>.55);if(window.innerWidth<700&&maxScroll>.62&&!popupShown){setTimeout(showExitPopup,1800)}});popup.addEventListener('click',e=>{if(e.target===popup)closeExitPopup()});
+const popup=document.getElementById('exit-popup');
+let popupShown=localStorage.getItem('sr_exit_popup_short_v2')==='1';
+let maxScroll=0;
+let lastScrollY=window.scrollY||document.documentElement.scrollTop||0;
+let reachedAlmostEnd=false;
+
+function showExitPopup(){
+  if(popupShown)return;
+  popupShown=true;
+  localStorage.setItem('sr_exit_popup_short_v2','1');
+  popup.classList.add('is-visible');
+}
+function closeExitPopup(){popup.classList.remove('is-visible')}
+
+// Desktop: solo intención real de salida, cuando el cursor va hacia cerrar la pestaña.
+document.addEventListener('mouseleave',e=>{
+  if(window.innerWidth>700 && e.clientY<=0)showExitPopup();
+});
+
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY||document.documentElement.scrollTop||0;
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  const currentScroll=h?y/h:0;
+  maxScroll=Math.max(maxScroll,currentScroll);
+  reachedAlmostEnd=maxScroll>=0.88;
+
+  const dudas=document.querySelector('.facebook-float');
+  if(dudas)dudas.classList.toggle('is-visible',maxScroll>.55);
+
+  // Móvil: no aparece por tiempo ni a media lectura.
+  // Solo se muestra si la persona ya llegó casi al final y luego empieza a volver/subir.
+  const scrollingUp=(lastScrollY-y)>80;
+  if(window.innerWidth<=700 && reachedAlmostEnd && scrollingUp)showExitPopup();
+  lastScrollY=y;
+},{passive:true});
+
+// Móvil: si ya vio casi toda la página y presiona atrás, mostramos el recordatorio una vez.
+if('history' in window){
+  history.replaceState({srPage:true},'');
+  history.pushState({srGuard:true},'');
+  window.addEventListener('popstate',()=>{
+    if(window.innerWidth<=700 && reachedAlmostEnd && !popupShown){
+      showExitPopup();
+      history.pushState({srGuard:true},'');
+    }else{
+      history.back();
+    }
+  });
+}
+
+popup.addEventListener('click',e=>{if(e.target===popup)closeExitPopup()});
 </script>
 </body>
 </html>
